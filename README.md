@@ -1,12 +1,10 @@
 ## SQL Data Cleaning 
 1. Get the 10 first rows from the table using SQL console
-
-Query: 
-
+```SQL
 SELECT *
 FROM club_member_info cmi
 LIMIT 10
-
+```
 THE RESULT:
 |full_name|age|martial_status|email|phone|full_address|job_title|membership_date|
 |---------|---|--------------|-----|-----|------------|---------|---------------|
@@ -20,3 +18,33 @@ THE RESULT:
 |   Joete Cudiff|51|divorced|jcudiff7@ycombinator.com|616-617-0965|975 Dwight Plaza,Grand Rapids,Michigan|Research Nurse|11/16/2014|
 |mendie alexandrescu|46|single|malexandrescu8@state.gov|504-918-4753|34 Delladonna Terrace,New Orleans,Louisiana|Systems Administrator III|3/12/1921|
 | fey kloss|52|married|fkloss9@godaddy.com|808-177-0318|8976 Jackson Park,Honolulu,Hawaii|Chemical Engineer|11/5/2014|
+
+## Copy the Table
+
+### Create a new table for cleaning
+
+Let's generate a new table where we can manipulate and restructure the data without modifying the original dataset.
+
+```sql
+<CREATE TABLE club_member_info_cleaned (
+    full_name VARCHAR(50),
+    age INTEGER,
+    marital_status VARCHAR(50),
+    email VARCHAR(50),
+    phone VARCHAR(50),
+    full_address VARCHAR(50),
+    job_title VARCHAR(50),
+    membership_date VARCHAR(50)
+);
+```
+Copy all values from the original table
+
+Use the following SQL command to copy all the values from the original table to the newly created one:
+
+```sql
+INSERT INTO club_member_info_cleaned
+SELECT * FROM club_member_info;
+```
+
+
+
